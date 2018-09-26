@@ -9,10 +9,8 @@ import matplotlib.pyplot as plt
 from pylab import mpl
 mpl.rcParams['font.sans-serif'] = ['SimHei']  # 添加字体使得画图显示中文
 
-X = np.array([6.19, 2.51, 7.29, 7.01, 5.7, 2.66, 3.98, 2.5, 9.1, 4.2])
-Y = np.array([5.25, 2.83, 6.41, 6.71, 5.1, 4.23, 5.05, 1.98, 10.5, 6.3])
-# X = np.array([8.19, 2.72, 6.39, 8.71, 4.7, 2.66, 3.78])
-# Y = np.array([7.01, 2.78, 6.47, 6.71, 4.1, 4.23, 4.05])
+X = np.array([8.19, 2.72, 6.39, 8.71, 4.7, 2.66, 3.78])
+Y = np.array([7.01, 2.78, 6.47, 6.71, 4.1, 4.23, 4.05])
 # 绘制散点
 plt.figure(figsize=(8, 6))
 plt.scatter(X, Y, color="green", label="样本数据", linewidth=2)
