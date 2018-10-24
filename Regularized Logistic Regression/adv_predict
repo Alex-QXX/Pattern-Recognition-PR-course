@@ -21,7 +21,7 @@ def nor_logistic(X, Y, k):
         err = Y.T - pre_Y  # 误差err
         L = -(np.dot(Y, np.log(pre_Y)) + np.dot(1 - Y, np.log(1 - pre_Y))) + lamb*np.sum(np.power(W, 2))/(2*m)  # 正则化，添加惩罚项
         loss = np.sum(L) / m  # loss
-        dW = np.dot(X.T, err.T) / m  # 更新参数
+        dW = np.dot(X.T, err.T) / m + (lamb * W) / m  # 更新参数
         db = np.sum(err) / m
         print(loss)
         W += alpha * dW
@@ -32,7 +32,10 @@ def nor_logistic(X, Y, k):
 if __name__ == '__main__':
     # 读入数据
     x_train, y_train, test_id, test_data = dp.load_data()
-
+    x_train, test_data = dp.data_interpolation(x_train, test_data)
+    x_train = dp.data_process(x_train)
+    test_data = dp.data_process(test_data)
+    
     n = int(input("迭代次数："))
     # logistic回归模型训练
     W, b = nor_logistic(x_train, y_train, n)
