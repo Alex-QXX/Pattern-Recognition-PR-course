@@ -8,7 +8,7 @@ The practice code for pattern recognition course
 
 2D and 3D Decision boundary for iris
 
-![2D Decision boundary](
-        Pattern-Recognition-PR-course/iris_Regularized_Logistic_Regression/2d曲线决策边界.jpg
-      )
+![2D Decision boundary](https://github.com/Alex-QXX/Pattern-Recognition-PR-course/iris_Regularized_Logistic_Regression/2d曲线决策边界.jpg)
+      
+![3D Decision boundary](https://github.com/Alex-QXX/Pattern-Recognition-PR-course/iris_Regularized_Logistic_Regression/3d曲面决策面.jpg)
       
