@@ -1,0 +1,54 @@
+import pandas as pd
+from sklearn.preprocessing import Imputer,scale,normalize,MinMaxScaler
+import data_processing as dp
+import numpy as np
+
+
+def sigmoid(Z):
+    return 1.0 / (1 + np.exp(-Z))
+
+
+def nor_logistic(X, Y, k):
+    m, n = X.shape
+    alpha = 0.5  # 学习率
+    lamb = 1  # 惩罚项系数
+    b = 0
+    W = np.random.rand(n, 1)
+    # W = np.ones((n, 1))
+    # 梯度下降
+    for i in range(k):
+        pre_Y = sigmoid(np.dot(W.T, X.T) + b)
+        err = Y.T - pre_Y  # 误差err
+        L = -(np.dot(Y, np.log(pre_Y)) + np.dot(1 - Y, np.log(1 - pre_Y))) + lamb*np.sum(np.power(W, 2))/(2*m)  # 正则化，添加惩罚项
+        loss = np.sum(L) / m  # loss
+        dW = np.dot(X.T, err.T) / m  # 更新参数
+        db = np.sum(err) / m
+        print(loss)
+        W += alpha * dW
+        b += alpha * db
+    return W, b
+
+
+if __name__ == '__main__':
+    # 读入数据
+    x_train, y_train, test_id, test_data = dp.load_data()
+
+    n = int(input("迭代次数："))
+    # logistic回归模型训练
+    W, b = nor_logistic(x_train, y_train, n)
+    print(W, b)
+
+    # 预测test
+    pre_y = sigmoid(W.T.dot(test_data.T)+b)
+
+    pre_y = pre_y.tolist()[0]
+    test_id = test_id.tolist()
+    # 存储结果
+    dataframe = pd.DataFrame({'ID': test_id, 'label': pre_y})
+    dataframe.to_csv("./data/submission.csv", index=False, sep=',')
+
+
+
+
+
+
