@@ -7,3 +7,5 @@ The practice code for pattern recognition course
 4. Regularized Logistic Regression for iris
 
 2D and 3D Decision boundary for iris
+![2D Decision boundary]Pattern-Recognition-PR-course/iris_Regularized_Logistic_Regression/2d曲线决策边界.jpg)
+      
