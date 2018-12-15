@@ -5,6 +5,7 @@ The practice code for pattern recognition course
 2. Exercises of BP neural network(BP_NN)
 3. Regularized Logistic Regression of prediction for Criteo Adv click through rate(CTR) 
 4. Regularized Logistic Regression for iris
+5. Prediction of protein secondary structure use BP_NN and CNN
 
 2D and 3D Decision boundary for iris
 
